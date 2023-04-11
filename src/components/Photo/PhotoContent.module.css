@@ -76,6 +76,12 @@
   background: url("../../assets/visualizacao-black.svg");
 }
 
+.closeButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .attributes {
   display: flex;
   font-size: 1.125rem;

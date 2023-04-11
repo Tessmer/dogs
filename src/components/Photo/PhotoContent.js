@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { PhotoComments, PhotoDelete } from "../../components";
-import styles from "./PhotoContent.module.css";
-import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { Image } from "../Helper";
 
-const PhotoContent = ({ data, single }) => {
+import { ReactComponent as Close } from "../../assets/close.svg";
+import styles from "./PhotoContent.module.css";
+
+const PhotoContent = ({ data, single, handleOutsideClick }) => {
   const { photo, comments } = data;
 
   const user = useContext(UserContext);
@@ -25,6 +27,14 @@ const PhotoContent = ({ data, single }) => {
               <Link to={`/profile/${photo.author}`}>@{photo.author}</Link>
             )}
             <span className={styles.views}>{photo.acessos}</span>
+            {!single && (
+              <>
+                <Close
+                  className={styles.closeButton}
+                  onClick={handleOutsideClick}
+                />
+              </>
+            )}
           </p>
           <h1 className="title">
             <Link to={`/photo/${photo.id}`}>{photo.title}</Link>
@@ -32,7 +42,9 @@ const PhotoContent = ({ data, single }) => {
           <ul className={styles.attributes}>
             <li>{photo.peso} kg</li>
             <li>
-              {photo.idade === 1 ? photo.idade + " ano" : photo.idade + " anos"}
+              {photo.idade === 0 || photo.idade === 1
+                ? photo.idade + " ano"
+                : photo.idade + " anos"}
             </li>
           </ul>
         </div>

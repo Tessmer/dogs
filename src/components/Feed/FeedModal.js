@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { PHOTO_GET } from "../../api/api";
 import { useFetch } from "../../hooks";
 import { Error, Loading } from "../Helper";
-
 import { PhotoContent } from "../../components";
 import styles from "./FeedModal.module.css";
 
@@ -22,7 +21,9 @@ const FeedModal = ({ photo, setModalPhoto }) => {
     <div className={styles.modal} onClick={handleOutsideClick}>
       {error && <Error error={error} />}
       {loading && <Loading />}
-      {data && <PhotoContent data={data} />}
+      {data && (
+        <PhotoContent data={data} handleOutsideClick={handleOutsideClick} />
+      )}
     </div>
   );
 };
