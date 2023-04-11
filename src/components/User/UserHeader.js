@@ -1,14 +1,16 @@
-import UserHeaderNav from "./UserHeaderNav";
-import styles from "./UserHeader.module.css";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
+import UserHeaderNav from "./UserHeaderNav";
+import styles from "./UserHeader.module.css";
+
 const UserHeader = () => {
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState("");
   const location = useLocation();
 
   useEffect(() => {
     const { pathname } = location;
+
     switch (pathname) {
       case "/account/statistics":
         setTitle("Estatísticas");
