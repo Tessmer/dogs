@@ -22,6 +22,7 @@ Este projeto contém as seguintes tecnologias:
 - [JavaScript](https://javascript.info/document)
 - [ReactJS](https://reactjs.org)
 - [React Router](https://reactrouter.com/en/main)
+- [Victory](https://github.com/FormidableLabs/victory)
 - [CSS Modules](https://github.com/css-modules/css-modules)
 - [NPM](https://docs.npmjs.com/)
 
