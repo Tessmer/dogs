@@ -40,12 +40,15 @@ export const UserStorage = ({ children }) => {
   };
 
   const userLogout = useCallback(async () => {
-    setData(null);
-    setError(null);
-    setLoading(false);
-    setLogin(false);
-    window.localStorage.removeItem("token");
-    navigate("/login");
+    const confirm = window.confirm("Tem certeza que deseja sair?");
+    if (confirm) {
+      setData(null);
+      setError(null);
+      setLoading(false);
+      setLogin(false);
+      window.localStorage.removeItem("token");
+      navigate("/login");
+    }
   }, [navigate]);
 
   useEffect(() => {
