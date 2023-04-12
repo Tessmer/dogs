@@ -10,8 +10,7 @@ const PhotoDelete = ({ id }) => {
     if (confirm) {
       const { url, options } = PHOTO_DELETE(id);
       const { response } = await request(url, options);
-      /*       if (response.ok) window.location.reload();
-       */
+      if (response.ok) window.location.reload();
     }
   };
 
